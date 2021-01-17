@@ -8,16 +8,19 @@ import numpy as np
 
 a4_dims = (11.7, 8.27)
 
-def hist_for_loop(df):
-    for col in df.columns:
+
+def hist_for_loop(df, columns=None):
+    columns = df.columns
+    for col in columns:
         fig, ax = plt.subplots(figsize=a4_dims)
-        sns.histplot(df[col])
+        sns.histplot(df[col], kde=True)
         plt.title(col)
         plt.show()
 
 
-def box_plot_for_loop(df):
-    for col in df.columns:
+def box_plot_for_loop(df, columns=None):
+    columns = df.columns
+    for col in columns:
         fig, ax = plt.subplots(figsize=a4_dims)
         sns.boxplot(df[col])
         plt.title(col)
